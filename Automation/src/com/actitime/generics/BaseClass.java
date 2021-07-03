@@ -19,16 +19,11 @@ public class BaseClass {
 		System.setProperty("webdriver.gecko.driver", "./driver/geckodriver.exe");
 	}
 	public WebDriver driver;
-	@Parameters("browser")
+	
 	@BeforeTest 
-	public void openBrowser(String browser) {
+	public void openBrowser() {
 		Reporter.log("openBrowser",true);
-		if(browser.equals("chrome")) {
-			driver = new ChromeDriver();
-		}else if(browser.equals("firefox")) {
-			driver = new FirefoxDriver();
-		}
-		
+		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 	@AfterTest 
