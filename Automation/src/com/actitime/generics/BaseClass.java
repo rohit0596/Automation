@@ -15,7 +15,7 @@ public class BaseClass {
 	static {
 		System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
 	}
-	public  WebDriver driver;
+	public static WebDriver driver;
 
 	@BeforeTest 
 	public void openBrowser() {
