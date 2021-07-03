@@ -18,7 +18,7 @@ public class BaseClass {
 		System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
 		System.setProperty("webdriver.gecko.driver", "./driver/geckodriver.exe");
 	}
-	public static WebDriver driver;
+	public WebDriver driver;
 	@Parameters("browser")
 	@BeforeTest 
 	public void openBrowser(String browser) {
@@ -45,8 +45,9 @@ public class BaseClass {
 		driver.findElement(By.xpath("//div[.='Login ']")).click();
 	}
 	@AfterMethod 
-	public void logout() {
+	public void logout() throws InterruptedException {
 		Reporter.log("Logout",true);
+		Thread.sleep(4000);
   		driver.findElement(By.id("logoutLink")).click();
 	}
 }

@@ -1,8 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Suite]">
-  <test thread-count="5" name="Test1(failed)">
+<suite parallel="tests" name="Failed suite [Suite]">
+  <test thread-count="5" parallel="tests" name="TestBlock1(failed)">
+    <parameter name="browser" value="chrome"/>
     <classes>
+      <class name="com.actitime.testScript.ProjectModule">
+        <methods>
+          <include name="closeBrowser"/>
+          <include name="testModifyProject"/>
+          <include name="testCreateProject"/>
+          <include name="openBrowser"/>
+          <include name="login"/>
+          <include name="logout"/>
+        </methods>
+      </class> <!-- com.actitime.testScript.ProjectModule -->
+      <class name="com.actitime.testScript.TaskModule">
+        <methods>
+          <include name="closeBrowser"/>
+          <include name="testModifyTask"/>
+          <include name="testCreateTask"/>
+          <include name="openBrowser"/>
+          <include name="login"/>
+          <include name="logout"/>
+        </methods>
+      </class> <!-- com.actitime.testScript.TaskModule -->
       <class name="com.actitime.testScript.CustomerModule">
         <methods>
           <include name="closeBrowser"/>
@@ -13,18 +34,39 @@
         </methods>
       </class> <!-- com.actitime.testScript.CustomerModule -->
     </classes>
-  </test> <!-- Test1(failed) -->
-  <test thread-count="5" name="Test2(failed)">
+  </test> <!-- TestBlock1(failed) -->
+  <test thread-count="5" parallel="tests" name="TestBlock2(failed)">
+    <parameter name="browser" value="firefox"/>
     <classes>
-      <class name="com.actitime.testScript.ReportModule">
+      <class name="com.actitime.testScript.ProjectModule">
         <methods>
           <include name="closeBrowser"/>
+          <include name="testModifyProject"/>
+          <include name="testCreateProject"/>
           <include name="openBrowser"/>
-          <include name="testCreateReport"/>
           <include name="login"/>
           <include name="logout"/>
         </methods>
-      </class> <!-- com.actitime.testScript.ReportModule -->
+      </class> <!-- com.actitime.testScript.ProjectModule -->
+      <class name="com.actitime.testScript.TaskModule">
+        <methods>
+          <include name="closeBrowser"/>
+          <include name="testModifyTask"/>
+          <include name="testCreateTask"/>
+          <include name="openBrowser"/>
+          <include name="login"/>
+          <include name="logout"/>
+        </methods>
+      </class> <!-- com.actitime.testScript.TaskModule -->
+      <class name="com.actitime.testScript.CustomerModule">
+        <methods>
+          <include name="closeBrowser"/>
+          <include name="openBrowser"/>
+          <include name="testCreateCustomer"/>
+          <include name="login"/>
+          <include name="logout"/>
+        </methods>
+      </class> <!-- com.actitime.testScript.CustomerModule -->
     </classes>
-  </test> <!-- Test2(failed) -->
+  </test> <!-- TestBlock2(failed) -->
 </suite> <!-- Failed suite [Suite] -->
