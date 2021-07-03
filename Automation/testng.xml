@@ -1,12 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite">
-  <test thread-count="5" name="Test">
+
+<suite name="Suite" parallel = 'tests'>
+  <test thread-count="5" name="TestBlock1">
+  <parameter name ="browser" value="chrome"/>
     <classes>
       <class name="com.actitime.testScript.ReportModule"/>
       <class name="com.actitime.testScript.ProjectModule"/>
       <class name="com.actitime.testScript.TaskModule"/>
       <class name="com.actitime.testScript.CustomerModule"/>
     </classes>
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
+  </test> 
+   <test thread-count="5" name="TestBlock2">
+  <parameter name ="browser" value="chrome"/>
+    <classes>
+      <class name="com.actitime.testScript.ReportModule"/>
+      <class name="com.actitime.testScript.ProjectModule"/>
+      <class name="com.actitime.testScript.TaskModule"/>
+      <class name="com.actitime.testScript.CustomerModule"/>
+    </classes>
+  </test> 
+</suite> 
